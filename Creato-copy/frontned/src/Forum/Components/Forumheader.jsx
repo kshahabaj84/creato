@@ -1,0 +1,224 @@
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { FaBell, FaSearch, FaUserAlt } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
+
+export const Forumheader = (child) => {
+  const [query, setQuery] = useState('');
+  const [querytag, setQuerytag] = useState([]);
+  const [querytitle, setQuerytitle] = useState([]);
+  const [queryusername, setQueryusername] = useState([]);
+  const [
+    home_header_rightbar_searchbar_input_table_div,
+    setHome_header_rightbar_searchbar_input_table_div,
+  ] = useState('home_header_rightbar_searchbar_input_table_div_none');
+  const [querysearchhistory, setQuerysearchhistory] = useState([]);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const fetchTagInSearch = async () => {
+      const resnew = await axios.get(`/forum/find/ques/all?q=${query}`);
+      setQuerytag(resnew.data);
+    };
+    if (query.length === 0 || query.length > 0) fetchTagInSearch();
+    if (child.user) {
+      if (query.length !== 0) {
+        const fetchSearchhistoryInSearch = async () => {
+          const resnewhistory = await axios.post(
+            `/find/serachhistory/all?q=${query}`,
+            {
+              username: child.user.username,
+            }
+          );
+          setQuerysearchhistory(resnewhistory.data);
+        };
+
+        if (query.length === 0 || query.length > 0)
+          fetchSearchhistoryInSearch();
+      }
+    }
+  }, [query]);
+
+  const handleLogout = async () => {
+    const res = await axios.get('/logout', {
+      withCredentials: true,
+      headers: {
+        Accept: 'application.json',
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      },
+    });
+    if (res.data === 'logout') {
+      window.location.href = '/';
+    } else {
+    }
+  };
+  const handleSearchchange = async (e) => {
+    setQuery(e.target.value.toLowerCase());
+    setHome_header_rightbar_searchbar_input_table_div(
+      'home_header_rightbar_searchbar_input_table_div'
+    );
+  };
+  const handlesearchbuttonclick = async (e) => {
+    e.preventDefault();
+    if (child.user.length !== 0) {
+      if (query.length !== 0) {
+        await axios.post('/add/user/searchhistory', {
+          username: child.user.username,
+          query: query,
+        });
+      }
+    }
+    navigate(`/tag/${query}`);
+  };
+  const handleClearSearchHistory = async (e) => {
+    e.preventDefault();
+    const res = await axios.post('/delete/user/searchhistory', {
+      username: child.user.username,
+    });
+    if (res.data === 'deleted successful') {
+      window.location.reload();
+    }
+  };
+  return (
+    <div className="home_header">
+      <Link to="/">
+        <div className="home_header_leftbar">
+          <img
+            className="home_header_leftbar_logo_img"
+            alt="logo"
+            src="/uploads/Creato_logo-removebg-preview.png"
+          />
+        </div>
+      </Link>
+      <div className="home_header_rightbar">
+        <form className="home_header_rightbar_searchbar">
+          <div className="home_header_rightbar_searchbar_input_div">
+            <input
+              className="home_header_rightbar_searchbar_input"
+              placeholder="search here"
+              type="text"
+              onChange={handleSearchchange}
+            />
+            <div className={home_header_rightbar_searchbar_input_table_div}>
+              <table>
+                <tbody>
+                  {querysearchhistory.length !== 0 && (
+                    <div>
+                      <button onClick={handleClearSearchHistory}>
+                        Clear History
+                      </button>
+                      <p>Search History</p>
+                      {querysearchhistory.map((item) => (
+                        <tr key={item.id}>
+                          <a href={`/tag/${item.searchedtext}`}>
+                            <td>{item.searchedtext}</td>
+                          </a>
+                        </tr>
+                      ))}
+                    </div>
+                  )}
+                  {querytag.length !== 0 && (
+                    <div>
+                      <p>Titles</p>
+                      {querytag.map((item) => (
+                        <tr key={item.id}>
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              const str = item.ques
+                                .replace(/\s+/g, '-')
+                                .toLowerCase();
+                              window.location.href = `/forum/ques/${str}`;
+                            }}
+                          >
+                            {item.ques}
+                          </button>
+                        </tr>
+                      ))}
+                    </div>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <button
+            onClick={handlesearchbuttonclick}
+            className="home_header_rightbar_searchbar_button"
+          >
+            <FaSearch />
+          </button>
+        </form>
+        {child.user.length !== 0 ? (
+          <div>
+            <div className="home_header_show_rightlinks">
+              <a className="home_header_show_rightlink_create" href="/create">
+                Create
+              </a>
+              <a className="home_header_noshow_rightlinks_forum" href="/forum">
+                Forum
+              </a>
+              <a className="home_header_noshow_rightlinks_forum" href="/blog">
+                Blog
+              </a>
+              <a
+                className="home_header_noshow_rightlinks_forum"
+                href="/notification"
+              >
+                <FaBell />
+                {child.user.notification.length !== 0 &&
+                  child.user.notification.length}
+              </a>
+              <div className="home_header_show_rightlink_profile_link">
+                <Link to="/userdashboard">
+                  <FaUserAlt className="home_header_show_rightlink_profile_icon" />
+                </Link>
+                <div className="home_header_show_rightlink_profile_name_div">
+                  <a
+                    href="/userdashboard"
+                    className="home_header_show_rightlink_profile_name"
+                  >
+                    Hi {child.user.username}
+                  </a>
+                  <div className="home_header_show_rightlink_profile_name_dropdown_div">
+                    <a
+                      className="home_header_show_rightlink_profile_name_dropdown_a"
+                      href="/userdashboard"
+                    >
+                      Dashboard
+                    </a>
+                    <button
+                      className="home_header_show_rightlink_profile_name_dropdown_a home_header_show_rightlink_profile_name_dropdown_a_border_none"
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div>
+            <div className="home_header_noshow_rightlinks">
+              <a className="home_header_noshow_rightlink_create" href="/create">
+                Create
+              </a>
+              <a className="home_header_noshow_rightlinks_join" href="/signup">
+                Join
+              </a>
+              <a className="home_header_noshow_rightlinks_signin" href="/login">
+                Signin
+              </a>
+              <a className="home_header_noshow_rightlinks_forum" href="/forum">
+                Forum
+              </a>
+              <a className="home_header_noshow_rightlinks_forum" href="/blog">
+                Blog
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};

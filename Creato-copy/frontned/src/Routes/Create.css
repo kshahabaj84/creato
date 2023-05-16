@@ -1,0 +1,42 @@
+.create_form_username_input {
+  display: none;
+}
+.create_form {
+  display: flex;
+  flex-direction: column;
+}
+.create_div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -1rem;
+}
+.create_form_title_input {
+  margin-bottom: 0.8rem;
+  padding: 0.5rem 0rem 0.5rem 1.3rem;
+  border-radius: 0.5rem;
+}
+.create_form_select {
+  margin-bottom: 0.8rem;
+  padding: 0.5rem 0rem 0.5rem 1.3rem;
+  border-radius: 0.5rem;
+}
+.create_form_button {
+  margin-top: 1rem;
+  background-color: black;
+  color: white;
+  padding: 0.5rem 0rem;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+.create_logo {
+  width: 13rem;
+  height: 3rem;
+  margin: 0.8rem;
+}
+.create_right {
+  margin-left: 2rem;
+}
+.create_form_option_select {
+  display: none;
+}

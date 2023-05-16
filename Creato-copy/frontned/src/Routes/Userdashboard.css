@@ -1,0 +1,42 @@
+.userdashboard_content_rightbar_personal_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+}
+.userdashboard_content_rightbar_personal_info_images_div {
+  display: flex;
+  flex-direction: column;
+}
+.userdashboard_content {
+  display: flex;
+  margin-top: 2rem;
+}
+.userdashboard_content_leftbar {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  padding-bottom: 12rem;
+  flex: 0.15;
+}
+.userdashboard_content_rightbar {
+  flex: 1;
+}
+.button_notclicked {
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  cursor: pointer;
+}
+.button_clicked {
+  color: black;
+  background-color: white;
+  padding: 1rem;
+  cursor: pointer;
+}
+.userdashboard_content_rightbar_personal_info_images_profileimages_form {
+}
+.userdashboard_content_rightbar_personal_info_otherinfo_div {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,43 @@
+.bottom_404 {
+  display: flex;
+  margin: -1rem 7rem;
+}
+.bottom_left_img_404 {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+}
+.bottom_left_404 {
+  flex: 1;
+}
+.bottom_right_404 {
+  flex: 1.5;
+  margin-top: -1rem;
+}
+.bottom_right_404_p1 {
+  font-size: 200px;
+  margin: 0;
+  margin-left: 200px;
+}
+.bottom_right_404_p2 {
+  font-size: 50px;
+  font-weight: 500;
+  margin: -2rem 0 0 0;
+  margin-left: 200px;
+}
+.bottom_right_404_p3 {
+  font-size: 50px;
+  font-weight: 700;
+  margin: 0;
+  margin-left: 200px;
+}
+.bottom_right_404_btn {
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  padding: 1rem 3rem;
+  margin-left: 200px;
+  margin-top: 2rem;
+  cursor: pointer;
+}

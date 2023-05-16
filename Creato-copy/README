@@ -1,0 +1,221 @@
+created folder Creato -- website folder
+npx create-react-app@5.0.1 frontend -- create frontend
+create folder backend
+remove default unused codes
+npm start -- to start server
+commit site to github -- Blank Frontend in creato repository
+
+created Routes folder in which Signup.jsx in frontend -- signup route
+npm i react-router-dom in frontend -- to create routes
+set signup route in app.js
+signup route with only h1 to test route
+commit signup route with h1
+
+signup route complete with post request to backend -- commit frontend signup route complete
+
+setup backend & database
+receiving & console logging data in backend from signup form -- commit receive signup data in backend
+
+set username min 2 character & confirm password in signup -- commit username min character & confirm pass
+
+sending otp to mail on signup -- commit otp to mail on signup
+
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import './Home.css';
+import { FaSearch, FaUserAlt } from 'react-icons/fa';
+import Table from './Table';
+
+export const Home = () => {
+const [userdata, setUserdata] = useState([]);
+const [show, setShow] = useState('');
+const [query, setQuery] = useState('');
+const [create, setCreate] = useState([]);
+useEffect(() => {
+const fetchCreate = async () => {
+const res = await axios.get('http://localhost:5000/findallcreate');
+setCreate(res.data);
+};
+fetchCreate();
+const fetchData = async () => {
+const res = await axios.get('http://localhost:5000/user/dashbord', {
+withCredentials: true,
+headers: {
+Accept: 'application.json',
+'Access-Control-Allow-Origin': '_',
+'Content-Type': 'application/json',
+},
+});
+setShow(res.data);
+setUserdata(res.data);
+};
+fetchData();
+}, []);
+const handleLogout = async () => {
+const res = await axios.get('http://localhost:5000/logout', {
+withCredentials: true,
+headers: {
+Accept: 'application.json',
+'Access-Control-Allow-Origin': '_',
+'Content-Type': 'application/json',
+},
+});
+if (res.data === 'logout') {
+window.location.href = '/';
+} else {
+}
+};
+const keys = ['title', 'discription'];
+const search = (data) => {
+return data.filter((item) =>
+keys.some((key) => item[key].toLowerCase().includes(query))
+);
+};
+
+return (
+<>
+
+<div className="home">
+<div className="home_header">
+<Link to="/">
+<div className="home_header_leftbar">
+<img
+                className="home_header_leftbar_logo_img"
+                alt="logo"
+                src="http://localhost:5000/uploads/Creato_logo-removebg-preview.png"
+              />
+</div>
+</Link>
+<div className="home_header_rightbar">
+<form className="home_header_rightbar_searchbar">
+<input
+className="home_header_rightbar_searchbar_input"
+placeholder="search here"
+type="text"
+onChange={(e) => setQuery(e.target.value.toLowerCase())}
+/>
+{<Table data={search(create)} />}
+<button className="home_header_rightbar_searchbar_button">
+<FaSearch />
+</button>
+</form>
+{show ? (
+<div>
+<div className="home_header_show_rightlinks">
+<a
+                    className="home_header_show_rightlink_create"
+                    href="/create"
+                  >
+Create
+</a>
+<a
+                    className="home_header_noshow_rightlinks_forum"
+                    href="/forum"
+                  >
+Forum
+</a>
+<div className="home_header_show_rightlink_profile_link">
+<Link to="/userdashboard">
+<FaUserAlt className="home_header_show_rightlink_profile_icon" />
+</Link>
+<div className="home_header_show_rightlink_profile_name_div">
+<a
+                        href="/userdashboard"
+                        className="home_header_show_rightlink_profile_name"
+                      >
+Hi {userdata.username}
+</a>
+<div className="home_header_show_rightlink_profile_name_dropdown_div">
+<a
+                          className="home_header_show_rightlink_profile_name_dropdown_a"
+                          href="/userdashboard"
+                        >
+Dashboard
+</a>
+<button
+                          className="home_header_show_rightlink_profile_name_dropdown_a home_header_show_rightlink_profile_name_dropdown_a_border_none"
+                          onClick={handleLogout}
+                        >
+Logout
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+) : (
+<div>
+<div className="home_header_noshow_rightlinks">
+<a
+                    className="home_header_noshow_rightlink_create"
+                    href="/create"
+                  >
+Create
+</a>
+<a
+                    className="home_header_noshow_rightlinks_join"
+                    href="/signup"
+                  >
+Join
+</a>
+<a
+                    className="home_header_noshow_rightlinks_signin"
+                    href="/login"
+                  >
+Signin
+</a>
+<a
+                    className="home_header_noshow_rightlinks_forum"
+                    href="/forum"
+                  >
+Forum
+</a>
+</div>
+</div>
+)}
+</div>
+</div>
+<div>
+<div className="home_content">
+{create.map((create, y8) => (
+<>
+<Link to={`/createsee/${create._id}`}>
+<div className="home_content_singleelement_div">
+{create.type === 'Image' ? (
+<>
+<img
+                          className="home_content_map_img"
+                          alt={create.title}
+                          src={create.url}
+                        ></img>
+<Link
+className="home_content_map_img_h3_link"
+to={`/user/${create.username}`} >
+<h3>{create.username}</h3>
+</Link>
+</>
+) : (
+<>
+<video
+                          className="home_content_map_img"
+                          alt={create.title}
+                          src={create.url}
+                        ></video>
+<Link
+className="home_content_map_img_h3_link"
+to={`/user/${create.username}`} >
+<h3>{create.username}</h3>
+</Link>
+</>
+)}
+</div>
+</Link>
+</>
+))}
+</div>
+</div>
+</div>
+</>
+);
+};

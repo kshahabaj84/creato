@@ -1,0 +1,41 @@
+.user_middle_div_banner_div {
+  margin-top: 1rem;
+  width: 60%;
+}
+.user_middle_div_banner_img {
+  width: 100%;
+  height: 200px;
+}
+.user_middle_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.user_middle_div_profilephoto_div {
+  width: 100px;
+  height: 100px;
+  margin-top: -3rem;
+}
+.user_middle_div_profilephoto_img {
+  width: 100%;
+  border-radius: 50%;
+  height: 100%;
+}
+.user_middle_div_bottom_div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user_middle_div_bottom_following_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.user_middle_div_bottom_followers_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

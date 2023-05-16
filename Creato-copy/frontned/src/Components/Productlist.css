@@ -1,0 +1,12 @@
+.productlist_map_div {
+  display: flex;
+  margin-top: 2rem;
+}
+.productlist_div {
+  width: 32%;
+  margin: 1%;
+}
+.productlist_img {
+  width: 100%;
+  height: 17rem;
+}

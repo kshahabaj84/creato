@@ -1,0 +1,140 @@
+.signup_main {
+  display: flex;
+}
+.signup_leftbar {
+  flex: 1.5;
+}
+.signup_leftbar_logo {
+  position: absolute;
+  width: 13rem;
+  height: 3rem;
+  margin: 0.8rem;
+}
+.signup_leftbar_backgroundimg {
+  width: 100%;
+  margin-top: 7rem;
+}
+.signup_rightbar {
+  flex: 1;
+  padding: 1rem 8rem;
+}
+.signup_rightbar_part1 {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+.signup_rightbar_part2 {
+  display: flex;
+  flex-direction: column;
+}
+.signup_rightbar_part3_form {
+  display: flex;
+  flex-direction: column;
+}
+.signup_rightbar_part2_para {
+  margin-top: -1rem;
+}
+.signup_rightbar_part3 {
+  margin-top: 0.5rem;
+}
+.signup_rightbar_part3_form_input {
+  padding: 0.5rem 0rem 0.5rem 1.3rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+}
+.signup_rightbar_part3_form_lable {
+  margin-bottom: 0.5rem;
+}
+.signup_rightbar_part3_form_buttom {
+  background-color: black;
+  color: white;
+  padding: 0.5rem 0rem;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+.signup_rightbar_part3_form_buttom:hover {
+  background-color: rgb(78, 77, 77);
+}
+.signup_rightbar_part4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Signup_rightbar_none {
+  display: none;
+}
+.login_forgetpassotpverify {
+  flex: 1;
+  padding: 2rem 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login_forgetpassotpverify_para {
+  margin-top: -1rem;
+}
+.signup_rightbar_part1_a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: blue;
+}
+.signup_usernameerror {
+  color: red;
+  margin-top: -1rem;
+}
+.signup_passworderror {
+  color: red;
+  margin-top: -1rem;
+}
+.signupdiv_otperror {
+  margin-top: -1rem;
+  color: red;
+}
+.login_forgetpassotpverify_para_div {
+  color: rgb(0, 96, 0);
+  background-color: rgb(204, 250, 204);
+  padding: 1rem 1rem;
+  border-radius: 0.3rem;
+  margin-top: -0.7rem;
+  text-align: center;
+}
+.login_forgetpassotpverify_form_div {
+  margin-top: 1rem;
+}
+.login_forgetpassotpverify_form_input {
+  padding: 0.5rem 5.5rem 0.5rem 1.2rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+.login_forgetpassotpverify_form {
+  display: flex;
+  flex-direction: column;
+}
+.login_forgetpassotpverify_form_button {
+  padding: 0.5rem 3.5rem;
+  border-radius: 0.5rem;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.login_forgetpassotpverify_bottom_div {
+  display: flex;
+  margin-top: 0.8rem;
+  align-items: center;
+  justify-content: center;
+}
+.login_forgetpassotpverify_bottom_back_a {
+  text-decoration: none;
+  display: flex;
+  flex: 0.5;
+  justify-content: left;
+}
+.login_forgetpassotpverify_bottom_resend_button {
+  flex: 0.5;
+  justify-content: right;
+  margin-left: 9rem;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}

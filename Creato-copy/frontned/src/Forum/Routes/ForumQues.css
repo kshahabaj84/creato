@@ -1,0 +1,11 @@
+.forumques_writeans_div {
+  border: solid 1px;
+  display: flex;
+  flex-direction: column;
+}
+.forumques_writeans_text_input {
+  border: none;
+}
+.forumques_writeans_file_input {
+  display: none;
+}

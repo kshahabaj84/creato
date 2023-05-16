@@ -1,0 +1,31 @@
+.Creatorlist_div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Creatorlist_img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.Creatorlist_middle {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.Creatorlist_right {
+  margin-left: 1rem;
+}
+.Creatorlist_middle_a {
+  text-decoration: none;
+  font-weight: 500;
+}
+.Creatorlist_middle_p {
+  font-size: small;
+}
+.Creatorlist_right {
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}

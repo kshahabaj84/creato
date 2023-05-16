@@ -1,0 +1,217 @@
+.Login_main {
+  display: flex;
+}
+.Login_leftbar {
+  flex: 1;
+}
+.Login_leftbar_logo {
+  position: absolute;
+  width: 13rem;
+  height: 3rem;
+  margin: 0.8rem;
+}
+.Login_leftbar_backgroundimg {
+  width: 100%;
+  margin-top: 5rem;
+}
+.Login_rightbar {
+  flex: 1;
+  padding: 2rem 8rem;
+}
+.Login_rightbar_part1 {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+.Login_rightbar_part2 {
+  display: flex;
+  flex-direction: column;
+}
+.Login_rightbar_part3_form {
+  display: flex;
+  flex-direction: column;
+}
+.Login_rightbar_part2_para {
+  margin-top: -1rem;
+}
+.Login_rightbar_part3 {
+  margin-top: 2rem;
+}
+.Login_rightbar_part3_form_input {
+  padding: 0.5rem 2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+}
+.Login_rightbar_part3_form_lable {
+  margin-bottom: 0.5rem;
+}
+.Login_rightbar_part3_form_buttom {
+  padding: 0.5rem 3.5rem;
+  border-radius: 0.5rem;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.Login_rightbar_part3_form_buttom:hover {
+  background-color: rgb(78, 77, 77);
+}
+.Login_rightbar_part4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Login_rightbar_none {
+  display: none;
+}
+.Login_otptab {
+  flex: 1;
+  padding: 2rem 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Login_otptab_para {
+  margin-top: -1rem;
+}
+.Login_rightbar_none {
+  display: none;
+}
+.Login_forgetpass {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+.login_rightbar_part1_a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: blue;
+}
+.Login_rightbar_part3_form_forgetpass_button {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+.signup_otptab {
+  flex: 1;
+  padding: 2rem 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.signup_otptab_para {
+  margin-top: -1rem;
+}
+.signup_otptab_para_div {
+  color: rgb(0, 96, 0);
+  background-color: rgb(204, 250, 204);
+  padding: 1rem 1rem;
+  border-radius: 0.3rem;
+  margin-top: -0.7rem;
+  text-align: center;
+}
+.signup_otptab_form_div {
+  margin-top: 1rem;
+}
+.signup_otptab_form_input {
+  padding: 0.5rem 5.5rem 0.5rem 1.2rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+.signup_otptab_form {
+  display: flex;
+  flex-direction: column;
+}
+.signup_otptab_form_button {
+  padding: 0.5rem 3.5rem;
+  border-radius: 0.5rem;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.signup_otptab_bottom_div {
+  display: flex;
+  margin-top: 0.8rem;
+  align-items: center;
+  justify-content: center;
+}
+.signup_otptab_bottom_back_a {
+  text-decoration: none;
+  display: flex;
+  flex: 0.5;
+  justify-content: left;
+}
+.signup_otptab_bottom_resend_button {
+  flex: 0.5;
+  justify-content: right;
+  margin-left: 9rem;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+.login_changepassword_paaworderror {
+  color: red;
+}
+.login_changepassword_para_div {
+  color: rgb(0, 96, 0);
+  background-color: rgb(204, 250, 204);
+  padding: 1rem 1rem;
+  border-radius: 0.3rem;
+  margin-top: -0.7rem;
+  text-align: center;
+}
+.login_changepassword_form_div {
+  margin-top: 1rem;
+}
+.login_changepassword_form_input {
+  padding: 0.5rem 5.5rem 0.5rem 1.2rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+.login_changepassword_form {
+  display: flex;
+  flex-direction: column;
+}
+.login_changepassword_form_button {
+  padding: 0.5rem 3.5rem;
+  border-radius: 0.5rem;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.login_changepassword_bottom_div {
+  display: flex;
+  margin-top: 0.8rem;
+  align-items: center;
+  justify-content: center;
+}
+.login_changepassword_bottom_back_a {
+  text-decoration: none;
+  display: flex;
+  flex: 0.5;
+  justify-content: left;
+}
+.login_changepassword_bottom_resend_button {
+  flex: 0.5;
+  justify-content: right;
+  margin-left: 9rem;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+.login_changepassword {
+  flex: 1;
+  padding: 2rem 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login_changepassword_para {
+  margin-top: -1rem;
+}
